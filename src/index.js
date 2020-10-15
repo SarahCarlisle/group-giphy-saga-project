@@ -49,18 +49,34 @@ function* rootSaga() {
   yield takeEvery("GET_FAVORITES", fetchFavoriteSaga);
 }
 
-function* addFavoriteSaga(action) {}
+function* addFavoriteSaga(action) {
+  try {
+    const response = yield axios.post("/api/favorite", action.payload);
+    yield put({ type: "SET_SEARCH", payload: response.data });
+  } catch (err) {
+    alert("Unable to add gif to favorites.");
+  }
+}
 
-function* fetchFavoriteSaga(action) {}
+function* fetchFavoriteSaga(action) {
+  try {
+    const response = yield axios.get("/api/favorite", {
+      searchParam: action.payload,
+    });
+
+    yield put({ type: "GET_FAVORITES", payload: response.data });
+  } catch (err) {
+    alert("Unable to get GIFS from the server");
+  }
+}
 
 function* fetchSearchSaga(action) {
   try {
-    const response = yield axios.get("/api/search", {
-      searchParam: action.payload,
-    });
+    console.log("payload in fetchSearchSaga", action.payload);
+    const response = yield axios.post("/api/search", action.payload);
     yield put({ type: "SET_SEARCH", payload: response.data });
   } catch (err) {
-    alert("Unable to get GIFS from the server");
+    alert("Unable to get GIFS from the server", err);
   }
 }
 

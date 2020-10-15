@@ -3,12 +3,47 @@
 }
 
 .App-header {
-  background-color: black;
-  min-height: 150px;
-  padding: 20px;
+  background-color: rgb(49, 49, 49);
+  min-height: 100px;
+  padding: 10px;
   color: white;
+  margin-bottom: 30px;
 }
 
 .App-title {
   font-size: 1.5em;
+}
+
+.search-form {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.display-gif {
+  display: flex;
+  width: 300px;
+  flex-wrap: wrap;
+}
+
+.display-item-div {
+  width: 300px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+nav > ul {
+  list-style-type: none;
+  margin: 10px auto;
+  width: 700px;
+  padding: 0;
+}
+
+nav > ul li {
+  display: inline-block;
+  text-align: center;
+  width: 160px;
+}
+
+#Link {
+  cursor: pointer;
 }
