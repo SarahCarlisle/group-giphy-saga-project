@@ -4,7 +4,7 @@ require("dotenv").config();
 
 const router = express.Router();
 
-router.post("/", (req, res) => {
+router.get("/", (req, res) => {
   console.log(req.body);
   axios
     .get(
