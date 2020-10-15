@@ -1,5 +1,3 @@
-//updated
-
 # Giphy Search and Favorites
 
 This week you will be building a Giphy searching and favoriting application which allows the user to save images and sort them into categories.
