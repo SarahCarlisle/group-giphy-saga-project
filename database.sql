@@ -13,3 +13,10 @@ CREATE TABLE "category" (
 INSERT INTO "category" ("name")
 VALUES ('funny'), ('cohort'), ('cartoon'), ('nsfw'), ('meme');
 
+
+CREATE TABLE "favorites" (
+	"id" SERIAL PRIMARY KEY,
+	"url" VARCHAR (400) NOT NULL,
+	"category_id" INT REFERENCES "category"
+	);
+
