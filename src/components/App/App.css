@@ -1,9 +1,12 @@
+* {
+}
+
 .App {
   text-align: center;
 }
 
 .App-header {
-  background-image: radial-gradient(rgb(49, 49, 49), rgb(92, 91, 91));
+  background-image: radial-gradient(rgb(34, 34, 34), rgb(92, 91, 91));
   min-height: 100px;
   padding: 10px;
   color: white;
@@ -54,4 +57,8 @@ nav > ul li {
 
 .gif-image {
   margin-top: 5px;
+}
+
+#categoryButton {
+  text-align: center;
 }

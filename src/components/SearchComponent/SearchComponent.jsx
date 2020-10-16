@@ -8,7 +8,11 @@ import Header from "../Header/Header";
 export class SearchComponent extends Component {
   render() {
     return (
-      <div>
+      <div
+        style={{
+          background: "linear-gradient(#bdc3c7 #2c3e50)",
+        }}
+      >
         <Header />
         <SearchForm />
         <Display />

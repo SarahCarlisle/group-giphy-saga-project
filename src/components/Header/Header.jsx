@@ -1,7 +1,16 @@
 import React, { Component } from "react";
-import Link from "@material-ui/core/Link";
+import Button from "@material-ui/core/Button";
+import { withRouter } from "react-router";
 
 export class Header extends Component {
+  home = () => {
+    this.props.history.push("/");
+  };
+
+  favorites = () => {
+    this.props.history.push("/favorites");
+  };
+
   render() {
     return (
       <div className="App">
@@ -10,14 +19,18 @@ export class Header extends Component {
           <nav>
             <ul>
               <li>
-                <Link id="Link" to="/">
+                <Button variant="contained" color="primary" onClick={this.home}>
                   Search Gifs
-                </Link>
+                </Button>
               </li>
               <li>
-                <Link id="Link" to="/favorites">
+                <Button
+                  variant="contained"
+                  color="primary"
+                  onClick={this.favorites}
+                >
                   View Favorites
-                </Link>
+                </Button>
               </li>
             </ul>
           </nav>
@@ -27,4 +40,4 @@ export class Header extends Component {
   }
 }
 
-export default Header;
+export default withRouter(Header);

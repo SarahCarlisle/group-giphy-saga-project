@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-
+//response
 //Importing Components
 import App from "./components/App/App";
 
@@ -27,7 +27,7 @@ const searchReducer = (state = null, action) => {
 };
 
 const favoritesReducer = (state = null, action) => {
-  if (action.type === "") {
+  if (action.type === "SET_FAVORITES") {
     return action.payload;
   }
   return state;
@@ -60,11 +60,9 @@ function* addFavoriteSaga(action) {
 
 function* fetchFavoriteSaga(action) {
   try {
-    const response = yield axios.get("/api/favorite", {
-      searchParam: action.payload,
-    });
+    const response = yield axios.get("/api/favorite");
 
-    yield put({ type: "GET_FAVORITES", payload: response.data });
+    yield put({ type: "SET_FAVORITES", payload: response.data });
   } catch (err) {
     alert("Unable to get GIFS from the server");
   }
@@ -83,7 +81,7 @@ function* fetchSearchSaga(action) {
 function* deleteFavoriteSaga(action) {
   try {
     const response = yield axios.delete(`api/favorite/${action.payload}`);
-    yield put({ type: "GET_FAVORITES", payload: response.data });
+    yield put({ type: "GET_FAVORITES" });
   } catch (err) {
     alert("Unable to remove gif from favorites");
   }
