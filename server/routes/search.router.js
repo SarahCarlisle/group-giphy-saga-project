@@ -8,7 +8,7 @@ router.post("/", (req, res) => {
   console.log(req.body);
   axios
     .get(
-      `http://api.giphy.com/v1/gifs/search?q=${req.body.searchParam}&api_key=${process.env.API_KEY}&limit=15`
+      `http://api.giphy.com/v1/gifs/search?q=${req.body.searchParam}&api_key=${process.env.API_KEY}&limit=16`
     )
 
     .then((response) => {

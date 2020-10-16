@@ -3,7 +3,7 @@
 }
 
 .App-header {
-  background-color: rgb(49, 49, 49);
+  background-image: radial-gradient(rgb(49, 49, 49), rgb(92, 91, 91));
   min-height: 100px;
   padding: 10px;
   color: white;
@@ -21,14 +21,18 @@
 
 .display-gif {
   display: flex;
-  width: 300px;
   flex-wrap: wrap;
+  justify-content: center;
+  margin-left: 5%;
 }
 
 .display-item-div {
-  width: 300px;
+  width: 205px;
   display: flex;
   flex-wrap: wrap;
+  border: 1px solid black;
+  justify-content: center;
+  margin: 25px;
 }
 
 nav > ul {
@@ -46,4 +50,8 @@ nav > ul li {
 
 #Link {
   cursor: pointer;
+}
+
+.gif-image {
+  margin-top: 5px;
 }
