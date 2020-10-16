@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import Button from "@material-ui/core/Button";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
-import InputLabel from "@material-ui/core/InputLabel";
 import FormControl from "@material-ui/core/FormControl";
+import {connect} from 'react-redux';
 
 export class DisplayItem extends Component {
   state = {
@@ -16,7 +16,10 @@ export class DisplayItem extends Component {
     });
   };
 
-  submit = () => {};
+  submit = () => {
+    console.log('Submit was clicked', this.props.gif.images.fixed_width.url )
+    this.props.dispatch({ type: 'ADD_FAVORITE' , payload: {url:this.props.gif.images.fixed_width.url, category: this.state.category}})
+  };
 
   render() {
     console.log(this.state.category);
@@ -29,7 +32,7 @@ export class DisplayItem extends Component {
           alt="random GIF"
         />
 
-        <FormControl>
+        <FormControl >
           <Select
             value={this.state.category}
             displayEmpty={true}
@@ -39,17 +42,17 @@ export class DisplayItem extends Component {
             labelId="Select A Category"
           >
             <MenuItem value="">Select A Category</MenuItem>
-            <MenuItem value="funny">Funny</MenuItem>
-            <MenuItem value="cohort">Cohort</MenuItem>
-            <MenuItem value="cartoon">Cartoon</MenuItem>
-            <MenuItem value="nsfw">NSFW</MenuItem>
-            <MenuItem value="meme">Meme</MenuItem>
+            <MenuItem value="1">Funny</MenuItem>
+            <MenuItem value="2">Cohort</MenuItem>
+            <MenuItem value="3">Cartoon</MenuItem>
+            <MenuItem value="4">NSFW</MenuItem>
+            <MenuItem value="5">Meme</MenuItem>
           </Select>
-          <Button>🔥</Button>
+          <Button onClick={this.submit}>🔥</Button>
         </FormControl>
       </div>
     );
   }
 }
 
-export default DisplayItem;
+export default connect()(DisplayItem);

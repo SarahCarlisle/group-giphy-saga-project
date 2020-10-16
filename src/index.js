@@ -52,7 +52,7 @@ function* rootSaga() {
 function* addFavoriteSaga(action) {
   try {
     const response = yield axios.post("/api/favorite", action.payload);
-    yield put({ type: "SET_SEARCH", payload: response.data });
+    // yield put({ type: "SET_SEARCH", payload: response.data });
   } catch (err) {
     alert("Unable to add gif to favorites.");
   }
